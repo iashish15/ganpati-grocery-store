@@ -63,9 +63,11 @@ export default function ProductCard({ product }) {
           : "border-gray-100 hover:border-saffron-200 hover:shadow-card"
       }`}
     >
-      <div className="w-full aspect-square bg-gradient-to-br from-saffron-50 to-amber-50 rounded-xl flex items-center justify-center text-4xl group-hover:scale-105 transition-transform duration-200 border border-saffron-100">
-        {product.emoji}
-      </div>
+      <img
+        src={product.image}
+        alt={product.name}
+        className="w-20 h-20 object-cover rounded-lg"
+      />
 
       <p className="text-xs font-semibold text-gray-800 text-center leading-snug line-clamp-2 w-full">
         {product.name}
