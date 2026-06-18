@@ -70,7 +70,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-gray-800 text-center text-xs text-gray-600">
           © {new Date().getFullYear()} Ganpati Kirana Store. Est. 1985 · Made
-          with ❤️ in Mau, UP
+          with ❤️ in Maryadpur, Mau, UP
         </div>
       </div>
     </footer>

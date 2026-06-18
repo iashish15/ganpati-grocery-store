@@ -7,7 +7,7 @@ export function buildWhatsAppMessage(cartItems) {
 
   const message = [
     "*GANPATI KIRANA STORE*",
-    "Mau, Uttar Pradesh | Est. 1985",
+    "Maryadpur | Est. 1985",
     "----------------------------",
     "",
     "*New Order Request*",
