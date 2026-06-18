@@ -26,7 +26,7 @@ export default function Navbar({
         }`}
       >
         {/* Top bar */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <div className="w-20 h-20 rounded-xl overflow-hidden shadow-sm">
               <img
@@ -35,14 +35,67 @@ export default function Navbar({
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* <div>
-              <p className="font-display font-bold text-lg text-gray-900 leading-tight">
-                Ganpati
-              </p>
-              <p className="text-[10px] font-medium text-saffron-600 leading-tight tracking-widest uppercase">
-                Kirana Store
-              </p>
-            </div> */}
+          </div>
+
+          <div className="flex-1 overflow-hidden">
+            <div className="relative overflow-hidden px-0 md:px-2 py-2">
+              <div
+                className="flex whitespace-nowrap"
+                style={{
+                  animation: "premiumMarquee 20s linear infinite",
+                  width: "max-content",
+                }}
+              >
+                {[...Array(2)].map((_, index) => (
+                  <div key={index} className="flex items-center gap-4">
+                    {[
+                      {
+                        icon: "🛒",
+                        text: "Order Directly on WhatsApp",
+                      },
+                      {
+                        icon: "🚫",
+                        text: "No Signup",
+                      },
+                      {
+                        icon: "🚫",
+                        text: "No Login",
+                      },
+
+                      {
+                        icon: "😌",
+                        text: "No Hassle",
+                      },
+                    ].map((item, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-2 bg-white px-4 py-2 mx-2"
+                      >
+                        <span className="text-base">{item.icon}</span>
+                        <span className="text-xs font-semibold text-gray-700">
+                          {item.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              {/* Fade Effect */}
+              <div className="absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+              <div className="absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+            </div>
+
+            <style>{`
+    @keyframes premiumMarquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+  `}</style>
           </div>
 
           <div className="flex items-center gap-3">
@@ -70,111 +123,6 @@ export default function Navbar({
             </button>
           </div>
         </div>
-
-        {/* <div className="hidden md:flex items-center justify-center gap-4">
-          <div className="bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
-            ✅ No Signup Required
-          </div>
-
-          <div className="bg-orange-50 text-orange-700 px-4 py-2 rounded-full text-sm font-medium">
-            🛒 Order on WhatsApp
-          </div>
-
-          <div className="bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">
-            ⚡ Fast Delivery
-          </div>
-
-          <div className="bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">
-            🏪 Trusted Since 1985
-          </div>
-        </div> */}
-        <div className="flex-1 overflow-hidden">
-          <div className="relative overflow-hidden  bg-gradient-to-r from-orange-50 via-white to-green-50 border border-orange-100 px-2 py-2">
-            <div
-              className="flex whitespace-nowrap"
-              style={{
-                animation: "premiumMarquee 20s linear infinite",
-                width: "max-content",
-              }}
-            >
-              {[...Array(2)].map((_, index) => (
-                <div key={index} className="flex items-center gap-4">
-                  {[
-                    {
-                      icon: "🛒",
-                      text: "Order Directly on WhatsApp",
-                    },
-                    {
-                      icon: "⚡",
-                      text: "Fast Home Delivery",
-                    },
-                    {
-                      icon: "🚫",
-                      text: "No Signup Required",
-                    },
-                    {
-                      icon: "🚫",
-                      text: "No Login Required",
-                    },
-                    {
-                      icon: "✨",
-                      text: "Simple Shopping",
-                    },
-                    {
-                      icon: "😌",
-                      text: "No Hassle",
-                    },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 bg-white shadow-sm border border-gray-100 rounded-full px-4 py-2 mx-2"
-                    >
-                      <span className="text-base">{item.icon}</span>
-                      <span className="text-xs font-semibold text-gray-700">
-                        {item.text}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-
-            {/* Fade Effect */}
-            <div className="absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-white to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-white to-transparent pointer-events-none" />
-          </div>
-
-          <style>{`
-    @keyframes premiumMarquee {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-50%);
-      }
-    }
-  `}</style>
-        </div>
-
-        {/* Category pill bar */}
-        {/* <div className="border-t border-gray-100 bg-white">
-          <div className="max-w-7xl mx-auto px-4 flex gap-2 overflow-x-auto hide-scrollbar py-2">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => onCategoryClick(cat.id)}
-                className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
-                  activeCategory === cat.id
-                    ? "bg-saffron-500 text-white shadow-sm"
-                    : "bg-gray-100 text-gray-600 hover:bg-saffron-100 hover:text-saffron-700"
-                }`}
-              >
-                <span>{cat.emoji}</span>
-                <span>{cat.label}</span>
-              </button>
-            ))}
-          </div>
-        </div> */}
       </nav>
 
       {/* Mobile menu */}

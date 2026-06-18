@@ -8,8 +8,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-saffron-400 to-saffron-600 flex items-center justify-center">
-                <Store className="w-5 h-5 text-white" />
+              <div className="w-20 h-20  overflow-hidden shadow-sm">
+                <img
+                  src="/ganpati_kirana_logo.png"
+                  alt="Ganpati Kirana"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <p className="font-display font-bold text-xl">Ganpati Kirana</p>
@@ -35,11 +39,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-saffron-500 flex-shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>+91 9506202625</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Clock className="w-4 h-4 text-saffron-500 flex-shrink-0" />
-                <span>Mon – Sun: 7:00 AM – 10:00 PM</span>
+                <span>Mon – Sun: 6:00 AM – 8:00 PM</span>
               </div>
             </div>
           </div>

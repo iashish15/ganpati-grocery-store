@@ -1,4 +1,6 @@
 import { MessageCircle, ShieldCheck, Clock, Truck } from "lucide-react";
+import heroBgDesktop from "../../../public/desktopbg.png";
+import heroBgMobile from "../../../public/mobilebg.png";
 
 const badges = [
   { icon: ShieldCheck, label: "Trusted Quality" },
@@ -43,52 +45,65 @@ const bgItems = [
 
 export default function HeroBanner({ onShopNow }) {
   return (
-    <section className="relative overflow-hidden pt-36 pb-0">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-saffron-50 via-cream to-amber-50/60" />
-
-      {/* Grid texture */}
+      {/* Desktop Background */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `repeating-linear-gradient(0deg,#92400e 0px,#92400e 1px,transparent 1px,transparent 40px),
-                            repeating-linear-gradient(90deg,#92400e 0px,#92400e 1px,transparent 1px,transparent 40px)`,
+          backgroundImage: `url(${heroBgDesktop})`,
         }}
       />
 
-      {/* Floating bg emojis */}
-      {bgItems.map((item, i) => (
-        <div
-          key={i}
-          className="absolute pointer-events-none select-none"
-          style={{
-            top: item.top,
-            left: item.left,
-            fontSize: item.size,
-            opacity: item.op,
-            transform: `rotate(${item.rot}deg)`,
-            filter: "blur(0.4px)",
-          }}
-        >
-          {item.emoji}
-        </div>
-      ))}
-
-      {/* Radial glow */}
+      {/* Mobile Background */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${heroBgMobile})`,
+        }}
+      />
+
+      {/* Premium Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-white/30" />
+
+      {/* Warm Glow */}
+      <div
+        className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 70% 60% at 30% 50%, rgba(251,191,36,0.12) 0%, transparent 70%)",
+            "radial-gradient(circle at 20% 30%, rgba(249,125,7,0.10), transparent 40%)",
+        }}
+      />
+
+      {/* Luxury Grid Texture */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+      repeating-linear-gradient(
+        0deg,
+        #92400e 0px,
+        #92400e 1px,
+        transparent 1px,
+        transparent 60px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        #92400e 0px,
+        #92400e 1px,
+        transparent 1px,
+        transparent 60px
+      )
+    `,
         }}
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-10">
-        <div className="max-w-2xl">
+      <div className="relative z-10 min-h-screen flex items-center max-w-7xl mx-auto px-0 sm:px-6 py-8 md:py-0">
+        <div className="max-w-2xl bg-white/20 backdrop-blur-[2px] rounded-3xl p-6 md:p-8">
           <div className="inline-flex items-center gap-2 bg-saffron-100/90 text-saffron-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-5 border border-saffron-200">
             <span className="w-1.5 h-1.5 bg-saffron-500 rounded-full animate-pulse" />
-            Your Neighbourhood Kirana Store
+            Your Neighbourhood Kirana Store Since 1985
           </div>
 
           <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-gray-900 leading-tight mb-4">
@@ -145,31 +160,6 @@ export default function HeroBanner({ onShopNow }) {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Right floating cards */}
-        <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3">
-          {[
-            { e: "🌾", label: "Grains" },
-            { e: "🧂", label: "Spices" },
-            { e: "🛢️", label: "Oils" },
-            { e: "🥛", label: "Dairy" },
-            { e: "🫖", label: "Tea" },
-            { e: "🍪", label: "Snacks" },
-          ].map(({ e, label }, i) => (
-            <div
-              key={i}
-              className="w-16 h-16 bg-white/80 backdrop-blur-sm rounded-2xl shadow-card flex flex-col items-center justify-center gap-1 border border-white/60"
-              style={{
-                transform: `translateX(${i % 2 === 0 ? "0px" : "22px"})`,
-              }}
-            >
-              <span className="text-2xl">{e}</span>
-              <span className="text-[9px] font-semibold text-gray-500">
-                {label}
-              </span>
-            </div>
-          ))}
         </div>
       </div>
 
