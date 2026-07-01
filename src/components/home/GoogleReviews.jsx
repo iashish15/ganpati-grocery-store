@@ -1,41 +1,14 @@
-// import React from "react";
-
-// const GoogleReviews = () => {
-//   return (
-//     <section className="py-16 bg-orange-50">
-//       <div className="max-w-7xl mx-auto px-4">
-
-//         <div className="text-center mb-12">
-//           <h2 className="text-4xl font-bold text-gray-800">
-//             ⭐ What Our Customers Say
-//           </h2>
-
-//           <p className="mt-3 text-gray-600">
-//             Real Google Reviews from our valued customers
-//           </p>
-//         </div>
-
-//         <div className="bg-white rounded-3xl shadow-xl p-6">
-//           <div
-//             className="elfsight-app-218e6730-a367-441e-96ee-9fe16029555b"
-//             data-elfsight-app-lazy
-//           ></div>
-//         </div>
-
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default GoogleReviews;
-
-
-// -----------------------------------
-
-
-import React from "react";
+import React, { useEffect } from "react";
 
 const GoogleReviews = () => {
+  useEffect(() => {
+    if (document.querySelector('script[src="https://embed.wiserreview.com/embed/6a44e5a4a5cc12bb523b48bb/widget.js"]')) return;
+    const script = document.createElement("script");
+    script.src = "https://embed.wiserreview.com/embed/6a44e5a4a5cc12bb523b48bb/widget.js";
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <section className="relative overflow-hidden py-24 bg-cream">
       {/* Background Decoration */}
@@ -48,16 +21,16 @@ const GoogleReviews = () => {
         <div className="text-center mb-16">
 
           <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-saffron-100 text-saffron-700 font-semibold shadow-card">
-            ⭐⭐⭐⭐⭐ Google Reviews
+            ⭐ Google Reviews
           </span>
 
-          <h2 className="mt-5 text-3xl md:text-5xl font-display font-bold text-gray-900">
-           Trusted by Our Customers
+          <h2 className="mt-5 text-2xl md:text-3xl font-display font-bold text-gray-900">
+            Trusted by Our Customers
           </h2>
 
           <div className="w-24 h-1 bg-saffron-500 rounded-full mx-auto mt-5"></div>
 
-          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-m text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Genuine Google Reviews from shoppers who trust Ganpati Kirana Store.
           </p>
 
@@ -87,11 +60,12 @@ const GoogleReviews = () => {
           <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-saffron-100 opacity-20 blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-40 h-40 rounded-full bg-forest-100 opacity-20 blur-3xl"></div>
 
-          {/* Google Widget */}
-          <div className="relative z-10">
+          {/* WiserReview Widget */}
+          <div className="relative z-10 min-h-[300px]">
             <div
-              className="elfsight-app-218e6730-a367-441e-96ee-9fe16029555b"
-              data-elfsight-app-lazy
+              data-type="carousel"
+              className="wiser_review_carousel"
+              data-id="6a44e5a4a5cc12bb523b48bb"
             ></div>
           </div>
         </div>
